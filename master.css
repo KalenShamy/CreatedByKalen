@@ -26,9 +26,9 @@ header {
   background: rgb(200,225,255);
 }
 #githubLink {
-  position: absolute;
-  top: 50px; /* TEMP - NORAMLLY 15 */
-  right: 15px;
+  position: relative;
+  top: 15px;
+  left: calc(100% - 47px);
   transition: 0.5s;
 }
 #githubLink:hover {
@@ -43,6 +43,8 @@ header {
   max-width: 650px;
   margin: auto;
   padding-top: 65px;
+  position: relative;
+  bottom: 36px;
 }
 #title h1 {
   margin: 0;
