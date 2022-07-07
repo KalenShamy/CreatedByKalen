@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Created By Kalen</title>
+    <link rel="stylesheet" href="master.css">
+    <script src="projects.js" charset="utf-8"></script>
+    <script src="script.js" charset="utf-8"></script>
+    <link rel="icon" href="Pictures/icon.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Electrolize&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="temp" style="width:100%;background:cornflowerblue;color:white;height:35px;text-align:center;padding:5px;">
+        This is a temp site. Domain and email address yet to be registered. Site icon yet to be created.
+        <div onclick="document.getElementById('temp').outerHTML='';document.getElementById('githubLink').style.top='15px';" style="text-align:right;font-size:1.5rem;position:relative;bottom:1em;right:15px;">×</div>
+    </div>
+    <header>
+      <a id="githubLink" href="https://github.com/KalenShamy" target="_blank">
+        <svg height="32" width="32" viewBox="0 0 16 16" version="1.1">
+          <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+        </svg>
+      </a>
+      <div id="title">
+        <h1 id="title_1">C<span>reated</span><span id="title_2">&lt;By&gt;</span></h1>
+        <h1 id="title_3">Kalen</h1>
+      </div>
+    </header>
+    <div id="intro">
+      <section>
+        <p id="f_start">f"</p>
+        <p>Hi, I'm Kalen! I've been <span>slaying progamming bugs</span> since 2019, and over the course of those <span id="f_year">{year - 2019} years</span>, I have acquired a variety of skills in programming. That includes a year of experience in front-end web development, as well as <span>dipping my toes</span> in some fun <span>SQL</span>!</p>
+        <p id="f_end">"</p>
+      </section>
+    </div>
+    <section id="projects">
+      <h2>Projects:</h2>
+      <div class="slideshow">
+        <a href="javascript:void(0)" onclick="lastProject()" class="slide_button">&lt;</a>
+        <div class="slideshow_content">
+          <img src="" alt="">
+          <div class="slideshow_content_info">
+            <div class="slideshow_content_top">
+              <h2>Title</h2>
+              <p>Date</p>
+              <p>Description</p>
+            </div>
+            <div class="slideshow_content_links">
+
+            </div>
+          </div>
+        </div>
+        <a href="javascript:void(0)" onclick="nextProject()" class="slide_button">&gt;</a>
+      </div>
+    </section>
+    <section id="project_info">
+      <h2>Tell me about your project</h2>
+      <div class="form">
+        <h3>Your Name:</h3>
+        <input id="name" type="text" value="">
+        <h3>Project Name:</h3>
+        <input id="project_name" type="text" value="">
+        <h3>Unique Pages:</h3>
+        <input id="pages" type="text" value="1">
+        <h3>Further Details:</h3>
+        <textarea id="details" type="text" rows="4" value=""></textarea>
+
+        <a id="project_submit" href="#" target="_self">Send</a>
+      </div>
+    </section>
+    <footer>
+      <p id="copyright">Copyright © 2022 Created By Kalen LLC - All Rights Reserved.</p>
+      <b>
+        <a href="https://github.com/KalenShamy" target="_blank">GitHub</a>
+        -
+        <a href="mailto:info@createdbykalen.com" target="_blank">Contact</a>
+      </b>
+    </footer>
+  </body>
+</html>
