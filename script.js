@@ -41,15 +41,15 @@ function setProject() {
   links.innerHTML = ""
   if (projects[currentProject].url) {
     if (links.innerHTML != "") links.innerHTML += " - ";
-    links.innerHTML += "<a href=\"" + projects[currentProject].url + "\" target=\"_blank\">Website</a>";
+    links.innerHTML += "<a href=\"" + projects[currentProject].url + "\" target=\"_blank\" class=\"link\">Website</a>";
   }
   if (projects[currentProject].github) {
     if (links.innerHTML != "") links.innerHTML += " - ";
-    links.innerHTML += "<a href=\"" + projects[currentProject].github + "\" target=\"_blank\">GitHub</a>";
+    links.innerHTML += "<a href=\"" + projects[currentProject].github + "\" target=\"_blank\" class=\"link\">GitHub</a>";
   }
   if (projects[currentProject].demo) {
     if (links.innerHTML != "") links.innerHTML += " - ";
-    links.innerHTML += "<a href=\"" + projects[currentProject].demo + "\" target=\"_blank\">Demo</a>";
+    links.innerHTML += "<a href=\"" + projects[currentProject].demo + "\" target=\"_blank\" class=\"link\">Demo</a>";
   }
 }
 
