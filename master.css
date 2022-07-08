@@ -5,12 +5,10 @@
 }
 html {
   scroll-behavior: smooth;
-  width: 100%;
 }
 body {
   margin: 0;
   font-family: "Bai Jamjuree";
-  width: 100%;
 }
 a {
   color: black;
