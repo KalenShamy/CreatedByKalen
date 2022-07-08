@@ -108,6 +108,13 @@ section {
   margin: 0;
   font-weight: 600;
   font-size: 1.5rem;
+
+  -khtml-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 #intro #f_end {
   text-align: right;
