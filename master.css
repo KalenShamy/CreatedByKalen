@@ -185,7 +185,7 @@ section {
 }
 #project_info #project_submit {
   display: block;
-  background-color: rgb(25,65,100);
+  background-color: cornflowerblue;
   margin: 20px auto 0 auto;
   text-align: center;
   font-size: 1.5rem;
@@ -195,10 +195,10 @@ section {
   color: white;
 }
 footer {
-  background-color: rgb(175,175,175);
+  background-color: rgb(25,65,100);
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
-  color: rgb(25, 25, 25);
+  color: rgb(200,225,255);
   text-transform: uppercase;
   font-size: 1rem;
   letter-spacing: 2px;
@@ -208,6 +208,7 @@ footer {
 }
 footer a {
   margin: 0 5%;
+  color: rgb(200,225,255);
 }
 
 
