@@ -145,9 +145,6 @@ section {
   margin-left: 15px;
   margin-right: 15px;
 }
-.slideshow img {
-  width: 100%;
-}
 .slideshow .slideshow_content_info {
   margin: 15px;
 }
@@ -239,9 +236,6 @@ footer a {
    display: flex;
    flex-direction: column;
    justify-content: space-between;
-  }
-  .slideshow img {
-    width: 50%;
   }
 }
 
