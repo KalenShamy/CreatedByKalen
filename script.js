@@ -73,6 +73,7 @@ function lastProject() {
 
 async function fStringAnim() {
   let text = document.getElementById("f_year");
+  text.innerText = "{year - 2019} years";
   await sleep(500);
   text.innerText = "{yea - 2019} years";
   await sleep(100);
