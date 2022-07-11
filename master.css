@@ -28,6 +28,14 @@ header {
   transition: 0.5s;
   background: rgb(200,225,255);
 }
+noscript {
+  display: block;
+  color: red;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 7px;
+  letter-spacing: 1px;
+}
 #githubLink {
   position: relative;
   top: 15px;
