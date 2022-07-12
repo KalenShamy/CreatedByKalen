@@ -21,7 +21,7 @@ function setUpForm() {
       return;
     }
     document.getElementById("project_submit").setAttribute("target", "_self");
-  })
+  });
 }
 
 var currentProject = 0;
