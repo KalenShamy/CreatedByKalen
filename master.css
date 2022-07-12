@@ -9,13 +9,18 @@ html {
 body {
   margin: 0;
   font-family: "Bai Jamjuree";
+  background: rgb(0,56,105);
+  color: rgb(200,225,255);
 }
 a {
-  color: black;
+  color: rgb(200,225,255);
   text-decoration: none;
 }
 .link:hover {
   text-decoration: underline;
+}
+h2 {
+  margin-top: 0;
 }
 p {
   font-weight: 400;
@@ -26,7 +31,10 @@ header {
   width: 100%;
   height: 275px;
   transition: 0.5s;
-  background: rgb(200,225,255);
+  background: rgb(0,35,75);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  margin-bottom: 2.5em;
 }
 noscript {
   display: block;
@@ -43,7 +51,7 @@ noscript {
   transition: 0.5s;
 }
 #githubLink:hover {
-  color: rgb(75,75,75);
+  color: rgb(255,255,255);
 }
 #githubLink path {
   fill: currentColor;
@@ -56,6 +64,10 @@ noscript {
   padding-top: 65px;
   position: relative;
   bottom: 36px;
+  text-shadow: rgb(52 79 111) 3px 3px,
+  rgb(52 79 111) 2.75px 2.75px, rgb(52 79 111) 2.5px 2.5px, rgb(52 79 111) 2.25px 2.25px, rgb(52 79 111) 2px 2px,
+  rgb(52 79 111) 1.75px 1.75px, rgb(52 79 111) 1.5px 1.5px, rgb(52 79 111) 1.25px 1.25px, rgb(52 79 111) 1px 1px,
+  rgb(52 79 111) 0.75px 0.75px, rgb(52 79 111) 0.5px 0.5px, rgb(52 79 111) 0.25px 0.25px;
 
   -khtml-user-select: none;
   -o-user-select: none;
@@ -89,13 +101,12 @@ noscript {
   transition: 0.5s;
 }
 section {
-  padding: 1.5em 25px;
-  max-width: 1000px;
+  padding: 0 25px 1.5em;
+  max-width: min(75%,1000px);
+  min-width: 400px;
   margin: auto;
-}
-#intro {
-  background: rgb(25,65,100);
-  color: rgb(200,225,255);
+  opacity: 0;
+  transition: 1s;
 }
 #intro p {
   margin-left: 25px;
@@ -108,6 +119,7 @@ section {
 }
 #intro #f_year {
   color: cornflowerblue;
+  white-space: nowrap;
 }
 #intro #f_start, #intro #f_end {
   font-family: "Electrolize";
@@ -133,6 +145,7 @@ section {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1rem;
 }
 .slideshow .slide_button {
   width: 3rem;
@@ -141,17 +154,28 @@ section {
   font-size: 1.5rem;
   text-align: center;
   border-radius: 100%;
-  background-color: rgb(200,225,255);
+  background: rgba(200,225,255,0.125);
+  box-shadow: rgba(0,0,0,0.25) 0.35rem 0.35rem;
+  transition: 0.35s;
+}
+.slideshow .slide_button:hover {
+  box-shadow: rgba(0,0,0,0.25) 0.15rem 0.15rem;
 }
 .slideshow .slideshow_content {
   display: flex;
   flex-direction: column;
   width: 70%;
-  background: rgb(200,225,255);
+  background: rgba(200,225,255,0.125);
+  box-shadow: rgba(0,0,0,0.25) 0.75rem 1rem;
   border-radius: 15px;
   overflow: hidden;
   margin-left: 15px;
   margin-right: 15px;
+  transition: all 0.25s, background 0s, transform 0.125s;
+}
+.slideshow .slideshow_content:hover {
+  border-radius: 7px;
+  box-shadow: rgba(0,0,0,0.25) 0.5rem 0.75rem;
 }
 .slideshow .slideshow_content_info {
   margin: 15px;
@@ -179,6 +203,9 @@ section {
   font-family: "Bai Jamjuree";
   font-weight: 500;
   padding: 2px 5px;
+  background: rgba(200,225,255,0.75);
+  border: rgba(0,0,0,0.75) 2px solid;
+  border-radius: 5px;
 }
 #project_info .form textarea {
   resize: none;
@@ -187,23 +214,29 @@ section {
   font-family: "Bai Jamjuree";
   font-weight: 500;
   padding: 2px 5px;
+  background: rgba(200,225,255,0.75);
+  border: rgba(0,0,0,0.75) 2px solid;
+  border-radius: 5px;
 }
 #project_info #project_submit {
   display: block;
-  background-color: cornflowerblue;
+  background-color: rgb(0,35,75);
+  box-shadow: rgba(0,35,75,0.5) 0.25em 0.25em;
   margin: 20px auto 0 auto;
   text-align: center;
   font-size: 1.5rem;
   border-radius: 15px;
   width: 100%;
   padding: 5px;
-  color: white;
+  transition: 0.5s;
+}
+#project_info #project_submit:hover {
+  box-shadow: rgba(0,35,75,0.5) 0.125em 0.125em;
 }
 footer {
-  background-color: rgb(25,65,100);
+  background-color: rgba(0,0,0,0.35);
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
-  color: rgb(200,225,255);
   text-transform: uppercase;
   font-size: 1rem;
   letter-spacing: 2px;
@@ -213,7 +246,6 @@ footer {
 }
 footer a {
   margin: 0 5%;
-  color: rgb(200,225,255);
 }
 
 
@@ -233,6 +265,9 @@ footer a {
   }
   #title_3 {
     bottom: 0.75em;
+  }
+  section {
+    max-width: 1000px;
   }
   .slideshow {
     justify-content: space-around;

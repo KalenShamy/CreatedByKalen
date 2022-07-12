@@ -26,7 +26,8 @@ function setUpForm() {
 
 var currentProject = 0;
 
-function setProject() {
+async function setProject() {
+  let sProject = currentProject.toString();
   let image = document.getElementById("projects").children[1].children[1].children[0];
   let title = document.getElementById("projects").children[1].children[1].children[1].children[0].children[0];
   let date = document.getElementById("projects").children[1].children[1].children[1].children[0].children[1];
@@ -36,7 +37,6 @@ function setProject() {
   image.setAttribute("src", "Pictures/Projects/" + projects[currentProject].img);
   title.innerText = projects[currentProject].title;
   date.innerText = projects[currentProject].date;
-  description.innerText = projects[currentProject].description;
 
   links.innerHTML = ""
   if (projects[currentProject].url) {
@@ -50,6 +50,22 @@ function setProject() {
   if (projects[currentProject].demo) {
     if (links.innerHTML != "") links.innerHTML += " - ";
     links.innerHTML += "<a href=\"" + projects[currentProject].demo + "\" target=\"_blank\" class=\"link\">Demo</a>";
+  }
+
+  description.innerText = "";
+  let wasSpace = false;
+  for (let i = 0; i < projects[currentProject].description.length; i++) {
+    if (sProject != currentProject) break;
+    if (wasSpace) {
+      description.innerText += " " + projects[currentProject].description[i];
+      wasSpace = false;
+    } else if (projects[currentProject].description[i] == " ") {
+      wasSpace = true;
+      continue;
+    } else {
+      description.innerText += projects[currentProject].description[i];
+    }
+    await sleep(50);
   }
 }
 
@@ -69,6 +85,40 @@ function lastProject() {
     currentProject -= 1;
   }
   setProject();
+}
+
+function setUpSlideshowHover() {
+  let slide = document.getElementById("projects").children[1].children[1];
+  slide.info = slide.getBoundingClientRect();
+  let slidePadding = 25;
+  document.addEventListener("mousemove", function(event) {
+    let x = event.clientX;
+    let y = event.clientY;
+    if (slide.info.x-slidePadding < x && slide.info.y-slidePadding < y && slide.info.x+slide.info.width+slidePadding > x && slide.info.y+slide.info.height+slidePadding > y) {
+      let fractionX = 2*(x-(slide.info.x+slide.info.width/2))/slide.info.width;
+      let fractionY = -2*(y-(slide.info.y+slide.info.height/2))/slide.info.height;
+      let effect = Math.abs(fractionX) < Math.abs(fractionY) && Math.abs(fractionX) || Math.abs(fractionY)
+      slide.style.transform = "rotate3d(" + fractionY + ", " + fractionX + ", 0, " + 30*effect + "deg)";
+      slide.style.background = "radial-gradient(circle, rgba(255,255,255,0.075) 0%, rgba(255,255,255,0) 45%) no-repeat, rgba(255,255,255,0.125) repeat";
+    } else if (slide.style.transform != "") {
+      slide.style.transform = "";
+      slide.style.background = "";
+    }
+    slide.style.backgroundPositionX = x-(slide.info.x+slide.info.width/2) + "px";
+    slide.style.backgroundPositionY = y-(slide.info.y+slide.info.height/2) + "px";
+  });
+  document.addEventListener("scroll", function() {
+    slide.style.transition = "0";
+    slide.style.transform = "";
+    slide.style.transition = "";
+    slide.info = slide.getBoundingClientRect();
+  });
+  window.addEventListener("resize", function() {
+    slide.style.transition = "0";
+    slide.style.transform = "";
+    slide.style.transition = "";
+    slide.info = slide.getBoundingClientRect();
+  });
 }
 
 async function fStringAnim() {
@@ -126,9 +176,32 @@ async function fStringAnim() {
   document.getElementById("f_year").innerText = (year-2019).toString() +  " years";
 }
 
+function inFrame(element) {
+    let height = window.innerHeight < window.outerHeight && window.innerHeight || window.outerHeight;
+    let y = element.getBoundingClientRect().y;
+    return height > y;
+}
+
+async function sectionLoad() {
+  for (let i = 0; i < document.getElementsByTagName("section").length; i++) {
+    if (inFrame(document.getElementsByTagName("section")[i]) && document.getElementsByTagName("section")[i].style.opacity != 1) {
+      await sleep(250);
+      document.getElementsByTagName("section")[i].style.opacity = 1;
+      await sleep(500);
+    }
+  }
+}
+
+async function setUpSections() {
+  sectionLoad();
+  document.addEventListener("scroll", sectionLoad);
+}
+
 window.onload = async function() {
   setUpForm();
   setProject();
+  setUpSections();
+  if (window.matchMedia('(pointer:fine)').matches) setUpSlideshowHover();
   await fStringAnim();
   document.getElementById("f_year").addEventListener("mouseover", function() {
     document.getElementById("f_year").innerText = "{year - 2019} years";
