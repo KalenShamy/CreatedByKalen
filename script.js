@@ -34,10 +34,6 @@ async function setProject() {
   let description = document.getElementById("projects").children[1].children[1].children[1].children[0].children[2];
   let links = document.getElementById("projects").children[1].children[1].children[1].children[1];
 
-  let imageSize = image.width < image.height && image.width || image.height;
-  image.width = imageSize;
-  image.height = imageSize;
-
   image.setAttribute("src", "Pictures/Projects/" + projects[currentProject].img);
   title.innerText = projects[currentProject].title;
   date.innerText = projects[currentProject].date;
@@ -94,6 +90,13 @@ function lastProject() {
 function setUpSlideshowHover() {
   let slide = document.getElementById("projects").children[1].children[1];
   slide.info = slide.getBoundingClientRect();
+  let image = document.getElementById("projects").children[1].children[1].children[0];
+  image.imageSize = function() {
+    let size = slide.info.width < slide.info.height && slide.info.width || slide.info.height;
+    image.width = size;
+    image.height = size;
+  }
+  image.imageSize();
   let slidePadding = 25;
   document.addEventListener("mousemove", function(event) {
     let x = event.clientX;
@@ -116,12 +119,14 @@ function setUpSlideshowHover() {
     slide.style.transform = "";
     slide.style.transition = "";
     slide.info = slide.getBoundingClientRect();
+    image.imageSize();
   });
   window.addEventListener("resize", function() {
     slide.style.transition = "0";
     slide.style.transform = "";
     slide.style.transition = "";
     slide.info = slide.getBoundingClientRect();
+    image.imageSize();
   });
 }
 
