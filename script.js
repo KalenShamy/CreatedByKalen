@@ -34,6 +34,10 @@ async function setProject() {
   let description = document.getElementById("projects").children[1].children[1].children[1].children[0].children[2];
   let links = document.getElementById("projects").children[1].children[1].children[1].children[1];
 
+  let imageSize = image.width < image.height && image.width || image.height;
+  image.width = imageSize;
+  image.height = imageSize;
+
   image.setAttribute("src", "Pictures/Projects/" + projects[currentProject].img);
   title.innerText = projects[currentProject].title;
   date.innerText = projects[currentProject].date;
