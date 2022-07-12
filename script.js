@@ -98,7 +98,7 @@ function setUpSlideshowHover() {
       let fractionX = 2*(x-(slide.info.x+slide.info.width/2))/slide.info.width;
       let fractionY = -2*(y-(slide.info.y+slide.info.height/2))/slide.info.height;
       let effect = Math.abs(fractionX) < Math.abs(fractionY) && Math.abs(fractionX) || Math.abs(fractionY)
-      slide.style.transform = "rotate3d(" + fractionY + ", " + fractionX + ", 0, " + 30*effect + "deg)";
+      slide.style.transform = "rotate3d(" + fractionY + ", " + fractionX + ", 0, " + 15*effect + "deg)";
       slide.style.background = "radial-gradient(circle, rgba(255,255,255,0.075) 0%, rgba(255,255,255,0) 45%) no-repeat, rgba(255,255,255,0.125) repeat";
     } else if (slide.style.transform != "") {
       slide.style.transform = "";
