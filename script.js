@@ -92,7 +92,7 @@ function setUpSlideshowHover() {
   slide.info = slide.getBoundingClientRect();
   let image = document.getElementById("projects").children[1].children[1].children[0];
   image.imageSize = function() {
-    let size = slide.info.width < slide.info.height && slide.info.width || slide.info.height;
+    let size = image.width < slide.height && slide.width || slide.height;
     image.width = size;
     image.height = size;
   }
