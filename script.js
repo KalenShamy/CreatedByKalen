@@ -99,6 +99,7 @@ function setUpSlideshowHover() {
   image.imageSize();
   let slidePadding = 25;
   document.addEventListener("mousemove", function(event) {
+    if (!window.matchMedia('(pointer:fine)').matches) return;
     let x = event.clientX;
     let y = event.clientY;
     if (slide.info.x-slidePadding < x && slide.info.y-slidePadding < y && slide.info.x+slide.info.width+slidePadding > x && slide.info.y+slide.info.height+slidePadding > y) {
@@ -210,7 +211,7 @@ window.onload = async function() {
   setUpForm();
   setProject();
   setUpSections();
-  if (window.matchMedia('(pointer:fine)').matches) setUpSlideshowHover();
+  setUpSlideshowHover();
   await fStringAnim();
   document.getElementById("f_year").addEventListener("mouseover", function() {
     document.getElementById("f_year").innerText = "{year - 2019} years";
