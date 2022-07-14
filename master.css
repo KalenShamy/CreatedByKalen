@@ -174,7 +174,6 @@ section {
   transition: all 0.25s, background 0s, transform 0.125s;
 }
 .slideshow .slideshow_content:hover {
-  border-radius: 7px;
   box-shadow: rgba(0,0,0,0.25) 0.5rem 0.75rem;
 }
 .slideshow .slideshow_content_info {

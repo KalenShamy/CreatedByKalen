@@ -34,6 +34,8 @@ async function setProject() {
   let description = document.getElementById("projects").children[1].children[1].children[1].children[0].children[2];
   let links = document.getElementById("projects").children[1].children[1].children[1].children[1];
 
+  while (document.getElementById("projects").style.opacity == 0) await sleep(50);
+
   image.setAttribute("src", "Pictures/Projects/" + projects[currentProject].img);
   title.innerText = projects[currentProject].title;
   date.innerText = projects[currentProject].date;
@@ -65,7 +67,7 @@ async function setProject() {
     } else {
       description.innerText += projects[currentProject].description[i];
     }
-    await sleep(50);
+    await sleep(10);
   }
 }
 
@@ -105,9 +107,10 @@ function setUpSlideshowHover() {
     if (slide.info.x-slidePadding < x && slide.info.y-slidePadding < y && slide.info.x+slide.info.width+slidePadding > x && slide.info.y+slide.info.height+slidePadding > y) {
       let fractionX = 2*(x-(slide.info.x+slide.info.width/2))/slide.info.width;
       let fractionY = -2*(y-(slide.info.y+slide.info.height/2))/slide.info.height;
-      let effect = Math.abs(fractionX) < Math.abs(fractionY) && Math.abs(fractionX) || Math.abs(fractionY)
-      slide.style.transform = "rotate3d(" + fractionY + ", " + fractionX + ", 0, " + 15*effect + "deg)";
-      slide.style.background = "radial-gradient(circle, rgba(255,255,255,0.075) 0%, rgba(255,255,255,0) 45%) no-repeat, rgba(255,255,255,0.125) repeat";
+      let effect = Math.abs(fractionX) < Math.abs(fractionY) && Math.abs(fractionX) || Math.abs(fractionY);
+      let flatDirection = Math.sign(-(x-(slide.info.x+slide.info.width/2))*(y-(slide.info.y+slide.info.height/2)));
+      slide.style.transform = "rotate3d(" + fractionY + ", " + fractionX + ", " + effect*flatDirection*0.125 + ", " + 10*effect + "deg)";
+      slide.style.background = "radial-gradient(circle, rgba(255,255,255,0.075) 0%, rgba(0,0,0,0) 45%) no-repeat, rgba(200,225,255,0.125) repeat";
     } else if (slide.style.transform != "") {
       slide.style.transform = "";
       slide.style.background = "";
